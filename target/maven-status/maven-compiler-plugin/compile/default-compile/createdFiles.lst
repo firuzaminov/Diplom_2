@@ -1,0 +1,6 @@
+api\client\OrderClient.class
+api\client\Client.class
+api\model\Credentials.class
+api\model\Order.class
+api\client\UserClient.class
+api\model\User.class
