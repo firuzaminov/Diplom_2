@@ -2,9 +2,9 @@ package api.model;
 import org.apache.commons.lang3.RandomStringUtils;
 
 public class User {
-    String email;
-    String password;
-    String name;
+    private String email;
+    private String password;
+    private String name;
 
     public User(String email, String password, String name){
         this.email = email;
@@ -49,7 +49,7 @@ public class User {
         return password;
     }
 
-    public void setPassword(String password) {
+    private void setPassword(String password) {
         this.password = password;
     }
 
@@ -57,7 +57,7 @@ public class User {
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 }

@@ -1,10 +1,10 @@
 package api.model;
 
 public class Credentials {
-    String email;
-    String password;
+    private String email;
+    private String password;
 
-    public Credentials(String email, String password) {
+    private Credentials(String email, String password) {
         this.email = email;
         this.password = password;
     }
@@ -14,15 +14,15 @@ public class Credentials {
     }
 
     public static Credentials getCredentialsWithWrongEmail(User user) {
-        return new Credentials(user.getEmail() + "m", user.getPassword());
+        return new Credentials(user.getEmail() + getRandomNumber(), user.getPassword());
     }
 
     public static Credentials getCredentialsWithWrongPassword(User user) {
-        return new Credentials(user.getEmail(), user.getPassword() + "44");
+        return new Credentials(user.getEmail(), user.getPassword() + getRandomNumber());
     }
 
     public static Credentials getCredentialsWithWrongData(User user) {
-        return new Credentials(user.getEmail() + "n", user.getPassword() + "83");
+        return new Credentials(user.getEmail() + getRandomNumber(), user.getPassword() + getRandomNumber());
     }
 
     public String getEmail() {
@@ -39,5 +39,10 @@ public class Credentials {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    private static double getRandomNumber(){
+        double x = Math.random();
+        return x;
     }
 }

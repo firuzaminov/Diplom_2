@@ -29,7 +29,7 @@ public class CreateOrderTest {
     @DisplayName("Test create order with authorisation and ingredients")
     public void createOrderWithAuthTest() {
         orderClient = new OrderClient();
-        ValidatableResponse responseOrderCreate = orderClient.createOrder(Order.getCorrectOrder(), token);
+        ValidatableResponse responseOrderCreate = orderClient.createOrder(Order.getCorrectOrder("61c0c5a71d1f82001bdaaa6d", "61c0c5a71d1f82001bdaaa6f"), token);
         responseOrderCreate.assertThat().statusCode(200)
                 .and().body("success", equalTo(true))
                 .and().body("name", notNullValue())
@@ -40,7 +40,7 @@ public class CreateOrderTest {
     @DisplayName("Test create order without authorisation")
     public void createOrderWithoutAuthTest() {
         orderClient = new OrderClient();
-        ValidatableResponse responseOrderCreate = orderClient.createOrderWithoutAuth(Order.getCorrectOrder());
+        ValidatableResponse responseOrderCreate = orderClient.createOrderWithoutAuth(Order.getCorrectOrder("61c0c5a71d1f82001bdaaa6d", "61c0c5a71d1f82001bdaaa6f"));
         responseOrderCreate.assertThat().statusCode(401)
                 .and().body("message", equalTo("You should be authorised"));
     }
@@ -58,7 +58,7 @@ public class CreateOrderTest {
     @DisplayName("Test create order with wrong ingredients hash")
     public void createOrderWithWrongHashTest() {
         orderClient = new OrderClient();
-        ValidatableResponse responseOrderCreate = orderClient.createOrder(Order.getOrderWithWrongHash(), token);
+        ValidatableResponse responseOrderCreate = orderClient.createOrder(Order.getOrderWithWrongHash("32,.1433154gfg","6fgdfdg22&1.,&?"), token);
         responseOrderCreate.assertThat().statusCode(500);
     }
 
