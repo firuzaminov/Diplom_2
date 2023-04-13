@@ -2,7 +2,7 @@ package api.model;
 import java.util.List;
 
 public class Order {
-    public List<String> ingredients;
+    private List<String> ingredients;
 
     public List<String> getIngredients() {
         return ingredients;
@@ -12,7 +12,7 @@ public class Order {
         this.ingredients = ingredients;
     }
 
-    public Order(List<String> ingredients) {
+    private Order(List<String> ingredients) {
         this.ingredients = ingredients;
     }
 
